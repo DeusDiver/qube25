@@ -9,8 +9,8 @@
   <xacro:property name="indicator_height" value="0.002"/>
   
   <!-- Kalkulerte størrelser -->
-  <xacro:property name="half_box_size" value="$(expr ${box_size} / 2)"/>
-  <xacro:property name="disk_z" value="$(expr ${box_size} + ${disk_thickness} / 2)"/>
+  <xacro:property name="half_box_size" value="0.051"/>
+  <xacro:property name="disk_z" value="0.107"/>
 
   <!-- Makro: 'qube' med valgfritt prefix for gjenbrukbarhet -->
   <xacro:macro name="qube" params="prefix">
