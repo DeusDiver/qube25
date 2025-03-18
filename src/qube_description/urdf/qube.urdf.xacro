@@ -1,21 +1,19 @@
 <?xml version="1.0"?>
-
-<robot name="qube" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="qube_scene">
+  <!-- Inkluder makrofilen -->
   <xacro:include filename="$(find qube_description)/urdf/qube.macro.xacro"/>
-
-  <xacro:property name="box_width" value="0.102"/>
-  <xacro:property name="angle_link_length" value="0.025"/>
-  <xacro:property name="angle_link_width" value="0.002"/>
-
+  
+  <!-- Definer world og base_link -->
   <link name="world"/>
   <link name="base_link"/>
-
-  <joint name="base_joint" type="fixed">
+  
+  <!-- Joint som knytter base_link til world -->
+  <joint name="world_joint" type="fixed">
     <parent link="world"/>
     <child link="base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
-  <xacro:joint_model prefix=""/>
-
+  <!-- Instansier Qube-makroen -->
+  <xacro:qube prefix=""/>
 </robot>
