@@ -22,3 +22,4 @@ ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false de
 
 Husk å sjekk!:
     Bringup: Sjekk baud rate (9600???), com port(Bruk arduino IDE)
+

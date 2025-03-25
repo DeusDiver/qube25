@@ -62,7 +62,7 @@ def launch_setup(context, *args, **kwargs):
 def generate_launch_description():
     # Declare launch arguments
     baud_rate_arg = DeclareLaunchArgument('baud_rate', default_value='115200')
-    simulation_arg = DeclareLaunchArgument('simulation', default_value='true')
+    simulation_arg = DeclareLaunchArgument('simulation', default_value='false')
     device_arg = DeclareLaunchArgument('device', default_value='/dev/ttyUSB1')
 
     # OpaqueFunction defers processing until the launch context is available

@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64
 from rcl_interfaces.msg import SetParametersResult
-from pid_controller_msgs.srv import SetReference  # ✅ Importer service-meldingen
+from pid_controller_msgs.srv import SetReference  # Importer service-meldingen
 import math
 
 class PIDControllerNode(Node):
@@ -33,7 +33,7 @@ class PIDControllerNode(Node):
         # Subscribe to 'measured_angle'
         self.subscription = self.create_subscription(
             Float64,
-            'angle',
+            'joint_state',
             self.measurement_listener,
             10
         )
@@ -103,4 +103,3 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
-
