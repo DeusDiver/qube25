@@ -1,74 +1,71 @@
 import os
-import xacro
+import xacro  # <-- Missing import added
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
 
 def launch_setup(context, *args, **kwargs):
-    # Resolve substitutions within the provided context
-    baud_rate_value = LaunchConfiguration('baud_rate').perform(context)
-    simulation_value = LaunchConfiguration('simulation').perform(context)
-    device_value = LaunchConfiguration('device').perform(context)
-    
-    # Get package directory for qube_bringup
-    package_dir = get_package_share_directory("qube_bringup")
-    xacro_file = os.path.join(package_dir, "urdf", "controlled_qube.urdf.xacro")
-    if not os.path.exists(xacro_file):
-        raise FileNotFoundError(f"Xacro file not found: {xacro_file}")
-    
-    # Process the xacro file with the resolved mappings
-    robot_description_content = xacro.process_file(
+    # Get package directories
+    qube_bringup_dir = get_package_share_directory("qube_bringup")
+    qube_driver_dir = get_package_share_directory("qube_driver")
+
+    # Process Xacro file with substitutions
+    xacro_file = os.path.join(qube_bringup_dir, "urdf", "controlled_qube.urdf.xacro")
+    robot_description = xacro.process_file(
         xacro_file,
         mappings={
-            "baud_rate": baud_rate_value,
-            "simulation": simulation_value,
-            "device": device_value
+            "baud_rate": LaunchConfiguration("baud_rate").perform(context),
+            "simulation": LaunchConfiguration("simulation").perform(context),
+            "device": LaunchConfiguration("device").perform(context),
         }
     ).toxml()
 
-    # Create your nodes
-    node_robot_state_publisher = Node(
+    # Robot State Publisher Node
+    robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        output="screen",
-        parameters=[{"robot_description": robot_description_content}]
+        parameters=[{"robot_description": robot_description}]
     )
 
-    rviz_config_file = os.path.join(package_dir, "config", "view_config.rviz")
-    node_rviz = Node(
+    # Joint State Publisher GUI
+    node_joint_state_publisher_gui = Node(
+        package="joint_state_publisher_gui",
+        executable="joint_state_publisher_gui",
+        name="joint_state_publisher_gui",
+        output="screen"
+    )
+
+
+    # RViz Node
+    rviz_config = os.path.join(qube_bringup_dir, "config", "view_config.rviz")
+    rviz_node = Node(
         package="rviz2",
         executable="rviz2",
-        name="rviz2",
-        output="screen",
-        arguments=["-d", rviz_config_file]
+        arguments=["-d", rviz_config]
     )
 
-    # Include launch file from qube_driver package
-    driver_package_dir = get_package_share_directory("qube_driver")
-    driver_launch_file = os.path.join(driver_package_dir, "launch", "qube_driver.launch.py")
-    include_driver_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(driver_launch_file)
+    # Include Qube Driver Launch
+    qube_driver_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(qube_driver_dir, "launch", "qube_driver.launch.py")
+        ])
     )
 
     return [
-        node_robot_state_publisher,
-        node_rviz,
-        include_driver_launch
+        robot_state_publisher,
+        rviz_node,
+        qube_driver_launch,
+        node_joint_state_publisher_gui
     ]
 
 def generate_launch_description():
-    # Declare launch arguments
-    baud_rate_arg = DeclareLaunchArgument('baud_rate', default_value='115200')
-    simulation_arg = DeclareLaunchArgument('simulation', default_value='false')
-    device_arg = DeclareLaunchArgument('device', default_value='/dev/ttyUSB1')
-
-    # OpaqueFunction defers processing until the launch context is available
     return LaunchDescription([
-        baud_rate_arg,
-        simulation_arg,
-        device_arg,
+        DeclareLaunchArgument("baud_rate", default_value="115200"),
+        DeclareLaunchArgument("simulation", default_value="false"),
+        DeclareLaunchArgument("device", default_value="/dev/ttyUSB0"),
         OpaqueFunction(function=launch_setup)
     ])
