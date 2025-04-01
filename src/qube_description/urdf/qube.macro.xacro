@@ -71,7 +71,7 @@
       <parent link="${prefix}rotor_link"/>
       <child link="${prefix}indicator_link"/>
       <!-- Plasserer indikatoren til å stikke ut fra disken (langs x-aksen) -->
-      <origin xyz="${disk_radius} 0 0" rpy="0 0 0"/>
+      <origin xyz="${disk_radius-0.012} 0 0.005" rpy="0 0 0"/>
     </joint>
   </xacro:macro>
 </robot>
