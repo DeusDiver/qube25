@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'pid = qube_controller.qube_pid:main'
         ],
     },
 )
