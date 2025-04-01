@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64MultiArray
+from sensor_msgs.msg import JointState
 from rcl_interfaces.msg import SetParametersResult
 from pid_controller_msgs.srv import SetReference
 import math
@@ -9,55 +10,61 @@ class VelocityPIDControllerNode(Node):
     def __init__(self):
         super().__init__('velocity_pid_controller_node')
 
-        # Declare PID-parameterar
+        # Deklarer PID-parametere
         self.declare_parameter('p', 1.0)
         self.declare_parameter('i', 0.0)
         self.declare_parameter('d', 0.01)
         self.declare_parameter('reference', 10.0)
 
-        # Hent parameterar
-        self.p = self.get_parameter('p').get_parameter_value().double_value
-        self.i = self.get_parameter('i').get_parameter_value().double_value
-        self.d = self.get_parameter('d').get_parameter_value().double_value
-        self.reference = self.get_parameter('reference').get_parameter_value().double_value
+        # Hent parameterne
+        self.p = self.get_parameter('p').value
+        self.i = self.get_parameter('i').value
+        self.d = self.get_parameter('d').value
+        self.reference = self.get_parameter('reference').value
 
         # Initialiser PID-kontrolleren
-        self.controller = pidController(self.p, self.i, self.d, self.reference)
+        self.controller = PIDController(self.p, self.i, self.d, self.reference)
 
         # Callback for dynamisk oppdatering av PID-parametere
         self.add_on_set_parameters_callback(self.parameter_callback)
 
-        # Opprett ein publisher for hastighets-pådrag til /velocity_controller/command
+        # Publisher for hastighets-pådrag til /velocity_controller/command (Float64MultiArray)
         self.publisher = self.create_publisher(Float64MultiArray, '/velocity_controller/command', 10)
 
-        # Abonner på den målte verdien (endrar emnet etter kva som er aktuelt)
+        # Abonner på /joint_states for å hente ut posisjon og hastighet
         self.subscription = self.create_subscription(
-            Float64MultiArray,  # Forutsett at også måleverdien sendast som en liste med 1 element
-            'measured_velocity',
-            self.measurement_listener,
+            JointState,
+            '/joint_states',
+            self.joint_state_callback,
             10
         )
 
-        # Opprett ein service-server for set_reference om nødvendig
+        # Service for set_reference (om nødvendig)
         self.srv = self.create_service(SetReference, 'set_reference', self.set_reference_callback)
 
-    def measurement_listener(self, msg):
-        """Oppdater PID-kontrolleren med målte verdi og publiser hastighets-pådrag."""
-        # Forvent at msg.data er ei liste med minst éin verdi
-        if msg.data:
-            measured_value = msg.data[0]
-        else:
-            measured_value = 0.0
+    def joint_state_callback(self, msg):
+        # Siden det kun er én joint, bruk den første verdien i posisjon- og hastighetslistene
+        if not msg.position:
+            self.get_logger().warn("Ingen posisjonsdata mottatt!")
+            return
 
+        position = msg.position[0]
+        velocity = msg.velocity[0] if len(msg.velocity) > 0 else 0.0
+
+        # Velg hva du vil regulere – her brukes posisjon som målt verdi.
+        measured_value = position  # alternativt: velocity
+
+        # Oppdater PID-kontrolleren
         velocity_command = self.controller.update(measured_value)
 
+        # Publiser hastighets-pådraget, husk at data må pakkes som en liste
         command_msg = Float64MultiArray()
-        # Husk å pakke verdien inn i ei liste
         command_msg.data = [velocity_command]
         self.publisher.publish(command_msg)
 
+        self.get_logger().info(f"P: {position:.3f}, V: {velocity:.3f}, Kommando: {velocity_command:.3f}")
+
     def parameter_callback(self, params):
-        """Callback for dynamisk oppdatering av PID-parametere."""
         for param in params:
             if param.name == 'p' and param.value >= 0.0:
                 self.controller.p = param.value
@@ -74,18 +81,17 @@ class VelocityPIDControllerNode(Node):
         return SetParametersResult(successful=True)
 
     def set_reference_callback(self, request, response):
-        """Callback for `set_reference`-servicen."""
+        # Sjekk om referanseverdien er gyldig (her satt til [-pi, pi] som eksempel)
         if -math.pi <= request.request <= math.pi:
             self.controller.reference = request.request
             self.get_logger().info(f"Setter referanse til {self.controller.reference}")
             response.success = True
         else:
-            self.get_logger().warn('Mottok ugyldig referanseverdi!')
+            self.get_logger().warn("Mottok ugyldig referanseverdi!")
             response.success = False
         return response
 
-
-class pidController:
+class PIDController:
     def __init__(self, p, i, d, reference):
         self.p = p
         self.i = i
@@ -102,14 +108,12 @@ class pidController:
         self.previous_error = error
         return output
 
-
 def main(args=None):
     rclpy.init(args=args)
     node = VelocityPIDControllerNode()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()
