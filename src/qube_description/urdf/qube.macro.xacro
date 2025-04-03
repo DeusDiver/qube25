@@ -58,7 +58,7 @@
     </joint>
 
     <!-- Revolute joint: disken spinner i forhold til boksen -->
-    <joint name="${prefix}disk_joint" type="revolute">
+    <joint name="${prefix}motor_joint" type="revolute">
       <parent link="${prefix}stator_link"/>
       <child link="${prefix}rotor_link"/>
       <origin xyz="0 0 ${disk_z}" rpy="0 0 0"/>

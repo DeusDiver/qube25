@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="controlled_qube_scene">
   <!-- Definer argument for makroer -->
   <xacro:arg name="baud_rate" default="115200"/> 
-  <xacro:arg name="device" default="/dev/ttyUSB0"/>
+  <xacro:arg name="device" default="/dev/ttyACM0"/>
   <xacro:arg name="simulation" default="false"/>
 
   <!-- Inkluder makrofila frå qube_description og qube_driver -->

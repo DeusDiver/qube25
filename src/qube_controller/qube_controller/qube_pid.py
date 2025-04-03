@@ -11,9 +11,9 @@ class VelocityPIDControllerNode(Node):
         super().__init__('velocity_pid_controller_node')
 
         # Deklarer PID-parametere
-        self.declare_parameter('p', 1.0)
-        self.declare_parameter('i', 0.0)
-        self.declare_parameter('d', 0.01)
+        self.declare_parameter('p', 10.0)
+        self.declare_parameter('i', 0.01)
+        self.declare_parameter('d', 0.0)
         self.declare_parameter('reference', 10.0)
 
         # Hent parameterne
@@ -29,7 +29,7 @@ class VelocityPIDControllerNode(Node):
         self.add_on_set_parameters_callback(self.parameter_callback)
 
         # Publisher for hastighets-pådrag til /velocity_controller/command (Float64MultiArray)
-        self.publisher = self.create_publisher(Float64MultiArray, '/velocity_controller/command', 10)
+        self.publisher = self.create_publisher(Float64MultiArray, '/velocity_controller/commands', 10)
 
         # Abonner på /joint_states for å hente ut posisjon og hastighet
         self.subscription = self.create_subscription(

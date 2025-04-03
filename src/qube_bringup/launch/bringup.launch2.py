@@ -66,6 +66,6 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument("baud_rate", default_value="115200"),
         DeclareLaunchArgument("simulation", default_value="false"),
-        DeclareLaunchArgument("device", default_value="/dev/ttyUSB0"),
+        DeclareLaunchArgument("device", default_value="/dev/ttyACM0"),
         OpaqueFunction(function=launch_setup)
     ])
