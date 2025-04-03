@@ -12,9 +12,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        # ✅ Beholder eksisterende launch-fil inkludering
         (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
-        # ✅ Legger til YAML-filen slik at den blir installert riktig
         (os.path.join('share', package_name, 'config'), glob('launch/config/*.yaml')),
     ],
     install_requires=['setuptools'],
