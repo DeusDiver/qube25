@@ -53,19 +53,18 @@ Kjøring av kode med kun simulering:
 
             ls /dev/tty*
 
-   Du vil da få opp et skjermbilde som dette:
+   Du vil da få en liste med enheter
 
-         (sett inn skjermbilde)
-   
 5. Koble kuben til en USB port på PCen din.
 6. Åpne en terminal (Ctrl+Alt+T)
 7. Kjør følgende kommando igjen:
 
             ls /dev/tty*
 
-   Du vil få opp et tilsvarende skjermbilde men med en ekstra "enhet" til i listen
+   Du vil få opp tilsvarende til skjermbildet under, hvor etter andre gangen kommandoen kjøres så vil der være en ekstra "enhet" i listen
+![Screenshot from 2025-04-03 11-11-32](https://github.com/user-attachments/assets/0dc9bd49-22fd-4424-904e-10b9d2ba5162)
 
-    (sett inn skjermbilde)
+Dette er Quben, og denne ID-en vil brukes senere!
    
 10. Åpne mappen til prosjektet.
 11. Høyreklikk i mappen og velg "Åpne i Terminal". 
@@ -90,7 +89,32 @@ Med launch filene kan man sette flere parameter. Se veiledning for lauchfiler le
             ros2 run qube_controller pid
 14.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
 
-Sett inn bilde veiledning her 
+![Screenshot from 2025-04-03 11-54-56](https://github.com/user-attachments/assets/bc71d679-4f88-48a0-8fde-9a118ed1329e)
+Følg pil 1 og endre "map" til "world", så kan du trykke på "Add"
+
+![Screenshot from 2025-04-03 11-56-17](https://github.com/user-attachments/assets/8e4b141e-b243-4c95-a283-5e453d2f3eee)
+
+Du vil da få opp en liste. Skroll ned til du ser "RobotModel", velg den og trykk "Ok"
+
+![Screenshot from 2025-04-03 11-56-30](https://github.com/user-attachments/assets/54fae7fa-509d-43b1-ba45-e67d66fe2f4d)
+
+Deretter må du utvide "RobotModel" og legge inn "/robot_description" i "Description Topic" felted som vist her. Trykk så av feltet, og quben skal dukke opp i visualiseringa!
+
+Nå som vi har gjort instillingene vi vil ha så skal vi lagre dette i en config fil.
+
+![Screenshot from 2025-04-03 11-56-30](https://github.com/user-attachments/assets/006e671b-0a84-4001-bf3c-1ef08139b21b)
+
+Trykk på "File" i øverst til venstre og trykk "Save Config As"
+
+![Screenshot from 2025-04-03 11-57-24](https://github.com/user-attachments/assets/3289cfb0-f840-475a-91e4-d2461dbe4429)
+
+Lagre så fila med navnet vist over! Nå skal disse instillingene brukes ved neste kjøring av launch fila. Om du vil gjøre andre endringer så kan du overskrive config fila med de instillingene du foretrekker.
+
+
+
+
+
+
 
 
 # Hvordan bruke launch filer
