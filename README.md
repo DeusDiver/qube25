@@ -56,7 +56,7 @@ Kjøring av kode med kun simulering:
    Du vil da få en liste med enheter
 
 5. Koble kuben til en USB port på PCen din.
-6. Åpne en terminal (Ctrl+Alt+T)
+6. Gå tilbake til terminalen
 7. Kjør følgende kommando igjen:
 
             ls /dev/tty*
