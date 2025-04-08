@@ -180,7 +180,9 @@ Hvor godt dokumentert er pakken? (skrive litt om pakken her)
 # qube_controller
 Hvor godt dokumentert er pakken? (skrive litt om pakken her)
 
-
+--------------------------------------------------------------------
+-------------------------------------------------------------------
+------------------------------------------------------------------
 
 
 
