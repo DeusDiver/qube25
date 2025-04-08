@@ -34,6 +34,7 @@ Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simuleri
 7.  Prosjektet inneholder to lounch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
+-
 
                 ros2 launch qube_bringup bringup.launch.py
 -
