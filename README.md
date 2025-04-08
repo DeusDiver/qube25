@@ -1,7 +1,16 @@
 # qube25
 Mini Prosjekt - Oliver &amp; Eldar - Gruppe 25
+## Innhold
+- [Innledning](#innledning)
+- [Kapittel 1](#kapittel-1)
 
+# Innledning
+Her kommer teksten for innledningen.
+
+# Kapittel 1
+Her kommer teksten for kapittel 1.
 ##Innhold:
+
 - [Om prosjektet](#Om prosjektet)
 - [Andre komandoer](#Andre komandoer)
 - [Oppsett:](# Oppsett:)
