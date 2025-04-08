@@ -6,7 +6,6 @@ Mini Prosjekt - Oliver &amp; Eldar - Gruppe 25
 - [Oppsett:](#Oppsett)
 - [Kjøre kode med kun simulering](#Kjøre-kode-med-kun-simulering)
 - [Kjøre kode med hardware](#Kjøre-kode-med-hardware)
-- [Kjøre kode med hardware](#Kjøre-kode-med-hardware:)
 - [Hvordan bruke launch filer](#Hvordan-bruke-launch-filer)
 - [Hva kan man gjøre](#Hva-kan-man-gjøre)
 - [Viktige komandoer](#Viktige-komandoer)
