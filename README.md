@@ -11,8 +11,8 @@ Her kommer teksten for innledningen.
 Her kommer teksten for kapittel 1.
 ##Innhold:
 
-- [Om prosjektet](#Om prosjektet)
-- [Andre komandoer](#Andre komandoer)
+- [Om prosjektet](#Om-prosjektet)
+- [Andre komandoer](#Andre-komandoer)
 - [Oppsett:](# Oppsett:)
 - [Kjøre kode med kun simulering](#Kjøre kode med kun simulering:)
 - [Kjøre kode med hardware](#Kjøre kode med hardware:)
