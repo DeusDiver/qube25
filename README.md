@@ -24,16 +24,21 @@ Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simuleri
 1. Åpne mappen til prosjektet.
 2. Høyreklikk i mappen og velg "Åpne i Terminal". 
 3. I terminalen må du bygge prosjeket med kommandoen. Når du kjører kommandoen, starter du prosessen med å kompilere og bygge prosjektets kildekode. Avhengigheter og pakker        oppdages, kildekoden kompileres og oppsettfiler genereres.
-   Dette gjør du ved å kjøre følgende comando i terminalen: "colcon build". 
-4. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
-   Dette gjør du ved kjøre følgende kommando i teminalen : "source install/setup.bash" 
-5.  Prosjektet inneholder to lounch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
+   Dette gjør du ved å kjøre følgende comando i terminalen:
+
+               colcon build 
+5. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
+   Dette gjør du ved kjøre følgende kommando i teminalen:
+
+               source install/setup.bash
+7.  Prosjektet inneholder to lounch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
-    - "ros2 launch qube_bringup bringup.launch.py"
-    - "ros2 launch qube_bringup bringup.launch2.py"
+
+                ros2 launch qube_bringup bringup.launch.py
+                ros2 launch qube_bringup bringup.launch2.py
     Med launch filene kan man sette flere parameter. Se veiledning for launch-filer lengre nede (link)
-6. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
+9. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
 7.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
 
 Sett inn bilde veiledning her 
