@@ -8,14 +8,19 @@ Mini Prosjekt - Oliver &amp; Eldar - Gruppe 25
 - [Hvordan bruke launch filer](#Hvordan-bruke-launch-filer)
 - [Hva kan man gjøre](#Hva-kan-man-gjøre)
 - [Viktige komandoer](#Viktige-komandoer)
-- [Andre komandoer](#Andre-komandoer)
+- [Pakker i prosjektet](#Pakker-i-prosjektet)
+- [qube_description pakken](#qube_description)
+- [qube_bringup pakken](#qube_bringup)
+- [qube_controller](#qube_controller)
+
+# Om prosjektet
+Kort beskrivelse
 
 Hei!
 
 Ønsker du å kjøre qube kontrolleren kan du følge denne oppskriften.
 Dette vil være en veiledning for de som kjører dette i ubuntu
-# Om prosjektet
-Kort beskrivelse
+
 # Oppsett
 1. Det første du må gjøre er å innstallere ROS2, du kan følge denne veiledningen: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
 2. Gå til mappen du ønsker å laste ned prosjektet til, høyreklikk innei mappen og velg "Åpne i terminal". Lim inn følgende kommando:
@@ -161,6 +166,22 @@ ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false de
 
 # Andre komandoer
 ros2 launch qube_description view_qube.launch.py #åpner visualisering av quben
+
+# Pakker i prosjektet
+Dette prosjektet har x pakker. Her kommer en liten beskrivelse av de 3 viktigste qube_description, qube_bringup og qube_controller.
+
+# qube_description
+Hvor godt dokumentert er filene i pakken? (sjekk at filene har kommentarer)
+Hvor godt dokumentert er selve pakken? (skirve litt om pakken her)
+
+# qube_bringup
+Hvor godt dokumentert er pakken? (skrive litt om pakken her)
+
+# qube_controller
+Hvor godt dokumentert er pakken? (skrive litt om pakken her)
+
+
+
 
 
 Her er viktige kommandoer du trenger:
