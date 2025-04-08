@@ -146,6 +146,9 @@ Man må ikke endre alt, man kan velge hvilke verdier man vil endre og uendra ver
 
 **"P"**, **"I"**, **"D"** Her kan du sette dine PID verdier. Start gjerne med kun et P ledd, så øk I / D forsiktig. OBS! Float, så om du skal velge "0" må du skrive "0.0"!!! 
 
+# Hva kan man gjøre
+1. Du skal kunne styre Quben via GUI du får opp. Her har du en slider og noen knapper som du kan styre Quben med. 
+2. Enderinger du gjør på Quben skal speiles i simulatoren som du ser på PCen
 
 # Viktige komandoer
 colcon build # Bygger alle pakkene i workspace
