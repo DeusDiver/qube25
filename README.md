@@ -116,9 +116,9 @@ Man må ikke endre alt, uendra verdiar bruker standard verdiene definert i bunne
 
 -
  
-            colcon build --packages-select qube_bringup  # Bygger kun den spesifiserte pakken
+             colcon build --packages-select qube_bringup  # Bygger kun den spesifiserte pakken
 
- -
+-
             
             source install/setup.bash  # Kilde oppsett etter bygging
            
