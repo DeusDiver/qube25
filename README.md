@@ -76,8 +76,12 @@ Kjøring av kode med kun simulering:
 14.  Prosjektet inneholder to launch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
-    - "ros2 launch qube_bringup bringup.launch.py device:=/dev/ttyACM0" (dev/ttyACM0 må her byttes ut med den "IDen" du fikk i steg 7)
-    - "ros2 launch qube_bringup bringup.launch2.py device:=/dev/ttyACM0" (dev/ttyACM0 må her byttes ut med den "IDen" du fikk i steg 7)
+
+            ros2 launch qube_bringup bringup.launch.py device:=/dev/ttyACM0
+-
+    
+            ros2 launch qube_bringup bringup.launch2.py device:=/dev/ttyACM0 
+(dev/ttyACM0 må her byttes ut med den "ID-en" du fikk i steg 7)
 
 Med launch filene kan man sette flere parameter. Se veiledning for lauchfiler lengre nede (link)
 
