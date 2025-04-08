@@ -11,7 +11,7 @@ Mini Prosjekt - Oliver &amp; Eldar - Gruppe 25
 - [Pakker i prosjektet](#Pakker-i-prosjektet)
 - [qube_description pakken](#qube_description)
 - [qube_bringup pakken](#qube_bringup)
-- [qube_controller](#qube_controller)
+- [qube_controller pakken](#qube_controller)
 
 # Om prosjektet
 Kort beskrivelse
