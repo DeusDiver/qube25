@@ -117,20 +117,24 @@ Lagre så fila med navnet vist over! Nå skal disse instillingene brukes ved nes
 
 
 
-# Hvordan bruke launch filer
+# Hvordan bruke launch filer:
 Ved hjelp av lauch filer kan man sette forskjellige parameter. Under ser du et eksempel på hvordan dette kan gjøres.
 
-    ros2 launch qube_bringup bringup.launch.py baud_rate:=9600 simulation:=false device:=/dev/ttyACM0 p:=12.5 i:=0.05 d:=0.2
+ros2 launch qube_bringup bringup.launch.py baud_rate:=9600 simulation:=false device:=/dev/ttyACM0 p:=12.5 i:=0.05 d:=0.2
 
-Man må ikke endre alt, uendra verdiar bruker standard verdiene definert i bunnen av launch fila.
+Man må ikke endre alt, man kan velge hvilke verdier man vil endre og uendra verdier bruker standard verdiene som erdefinert i bunnen av launch fila.
 
-"***baud_rate***" spørs på kva microkontroller som skal brukes. F.eks en arduino uno har vanligvis en baud rate på 9600, og ein eps32 har vanligvis 115200 (dette er standard verdien i prosjektet).
+Ønsker du å kjøre lauchfilen med kun standard verdier kjører du følgende komando "ros2 launch qube_bringup bringup.launch.py"
 
-"***simulation***" velg true eller false basert på om ein Qube faktisk er tilkoblet eller ikke.
+Ønsker du å kun endre decive kjører du følgende kommando "ros2 launch qube_bringup bringup.launch.py device:=/dev/ttyACM0 
 
-"***device***" velg riktig! Sjå over hvordan du finner hva du skal velge
+**"baud_rate"** vil variere fra mellom forskjelligemicrokontroller. F.eks har en Arduino UNO har vanligvis en baud rate på 9600, og en ESP32 har vanligvis 115200. Kuben har en ESP32 og derfor er dette standard verdien i dette prosjektet.
 
-"***p***", "***i***", "***d***" PID verdier, start gjerne med kun et P ledd, så øk I / D forsiktig. ***OBS!*** Float, så om du skal velge "0" må du skrive "0.0"!!! 
+**"simulation"** her velger du true eller false basert på om en Qube faktisk er tilkoblet eller ikke. (true Qube er ikke tilkoblet)
+
+**"device"** Hvordan du finner hvilken device du skal bruke er forklart under "Kjøre kode med hardware" punkt 3-7. 
+
+**"P"**, **"I"**, **"D"** Her kan du sette dine PID verdier. Start gjerne med kun et P ledd, så øk I / D forsiktig. OBS! Float, så om du skal velge "0" må du skrive "0.0"!!! 
 
 
 # Viktige komandoer
