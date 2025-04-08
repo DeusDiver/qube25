@@ -36,6 +36,7 @@ Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simuleri
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
 
                 ros2 launch qube_bringup bringup.launch.py
+
     
                 ros2 launch qube_bringup bringup.launch2.py
     Med launch filene kan man sette flere parameter. Se veiledning for launch-filer lengre nede (link)
