@@ -100,13 +100,13 @@ Ved hjelp av lauch filer kan man sette forskjellige parameter. Under ser du et e
 
 Man må ikke endre alt, uendra verdiar bruker standard verdiene definert i bunnen av launch fila.
 
-"**baud_rate**" spørs på kva microkontroller som skal brukes. F.eks en arduino uno har vanligvis en baud rate på 9600, og ein eps32 har vanligvis 115200 (dette er standard verdien i prosjektet).
+"***baud_rate***" spørs på kva microkontroller som skal brukes. F.eks en arduino uno har vanligvis en baud rate på 9600, og ein eps32 har vanligvis 115200 (dette er standard verdien i prosjektet).
 
-"**simulation**" velg true eller false basert på om ein Qube faktisk er tilkoblet eller ikke.
+"***simulation***" velg true eller false basert på om ein Qube faktisk er tilkoblet eller ikke.
 
-"**device**" velg riktig! Sjå over hvordan du finner hva du skal velge
+"***device***" velg riktig! Sjå over hvordan du finner hva du skal velge
 
-"**p**", "**i**", "**d**" PID verdier, start gjerne med kun et P ledd, så øk I / D forsiktig. **OBS!** Float, så om du skal velge "0" må du skrive "0.0"!!! 
+"***p***", "***i***", "***d***" PID verdier, start gjerne med kun et P ledd, så øk I / D forsiktig. ***OBS!*** Float, så om du skal velge "0" må du skrive "0.0"!!! 
 
 
 
