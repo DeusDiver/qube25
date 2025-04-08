@@ -1,33 +1,23 @@
 # qube25
 Mini Prosjekt - Oliver &amp; Eldar - Gruppe 25
 ## Innhold
-- [Innledning](#innledning)
-- [Kapittel 1](#kapittel-1)
-
-# Innledning
-Her kommer teksten for innledningen.
-
-# Kapittel 1
-Her kommer teksten for kapittel 1.
-##Innhold:
-
 - [Om prosjektet](#Om-prosjektet)
 - [Andre komandoer](#Andre-komandoer)
-- [Oppsett:](# Oppsett:)
-- [Kjøre kode med kun simulering](#Kjøre kode med kun simulering:)
-- [Kjøre kode med hardware](#Kjøre kode med hardware:)
-- [Kjøre kode med hardware](#Kjøre kode med hardware:)
-- [Hvordan bruke launch filer](#Hvordan bruke launch filer:)
-- [Hva kan man gjøre](#Hva kan man gjøre)
-- [Viktige komandoer](#Viktige komandoer)
-- [Andre komandoer](#Andre komandoer)
+- [Oppsett:](#Oppsett)
+- [Kjøre kode med kun simulering](#Kjøre-kode-med-kun-simulering)
+- [Kjøre kode med hardware](#Kjøre-kode-med-hardware)
+- [Kjøre kode med hardware](#Kjøre-kode-med-hardware:)
+- [Hvordan bruke launch filer](#Hvordan-bruke-launch-filer)
+- [Hva kan man gjøre](#Hva-kan-man-gjøre)
+- [Viktige komandoer](#Viktige-komandoer)
+- [Andre komandoer](#Andre-komandoer)
 
 Hei!
 
 Ønsker du å kjøre qube kontrolleren kan du følge denne oppskriften.
 Dette vil være en veiledning for de som kjører dette i ubuntu
 
-# Oppsett:
+# Oppsett
 1. Det første du må gjøre er å innstallere ROS2, du kan følge denne veiledningen: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
 2. Gå til mappen du ønsker å laste ned prosjektet til, høyreklikk innei mappen og velg "Åpne i terminal". Lim inn følgende kommando:
 
@@ -41,7 +31,7 @@ maskinvare eller simulator. Åpne en terminal (Ctrl+Alt+T) og kjør disse to com
 
 Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simulering eller man kan kjøre med hardware.
 
-# Kjøre kode med kun simulering:
+# Kjøre kode med kun simulering
 1. Åpne mappen til prosjektet.
 2. Høyreklikk i mappen og velg "Åpne i Terminal". 
 3. I terminalen må du bygge prosjeket med kommandoen. Når du kjører kommandoen, starter du prosessen med å kompilere og bygge prosjektets kildekode. Avhengigheter og pakker        oppdages, kildekoden kompileres og oppsettfiler genereres.
@@ -66,7 +56,7 @@ Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simuleri
 
 Sett inn bilde veiledning her 
 
-# Kjøre kode med hardware:
+# Kjøre kode med hardware
 Kjøring av kode med kun simulering:
 1. Sett sammen quben og koble til strøm.
 2. Åpne en terminal (Ctrl+Alt+T)
@@ -138,7 +128,7 @@ Lagre så fila med navnet vist over! Nå skal disse instillingene brukes ved nes
 
 
 
-# Hvordan bruke launch filer:
+# Hvordan bruke launch filer
 Ved hjelp av lauch filer kan man sette forskjellige parameter. Under ser du et eksempel på hvordan dette kan gjøres.
 
 ros2 launch qube_bringup bringup.launch.py baud_rate:=9600 simulation:=false device:=/dev/ttyACM0 p:=12.5 i:=0.05 d:=0.2
