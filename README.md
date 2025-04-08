@@ -11,7 +11,7 @@ Dette vil være en veiledning for de som kjører dette i ubuntu
 2. Gå til mappen du ønsker å laste ned prosjektet til, høyreklikk innei mappen og velg "Åpne i terminal". Lim inn følgende kommando:
 3. 
 
-(git clone https://github.com/DeusDiver/qube25.git) 
+         git clone https://github.com/DeusDiver/qube25.git
 
 Dette vil klone prosjektet til ønsket mappe. Dette blir ditt workspace fra nå av.
 4. Du må laste ned to stykk ROS 2 kontroller-pakker, som inneholder spesifikke noder for å håndtere robotens kontrollmekanismer. Disse sørger for kommunikasjon med robotens 
@@ -46,7 +46,7 @@ Kjøring av kode med kun simulering:
 
    Du vil da få opp et skjermbilde som dette:
 
-        (sett inn skjermbilde)
+         (sett inn skjermbilde)
    
 5. Koble kuben til en USB port på PCen din.
 6. Åpne en terminal (Ctrl+Alt+T)
