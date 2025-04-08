@@ -39,11 +39,10 @@ class VelocityPIDControllerNode(Node):
             10
         )
 
-        # Service for set_reference (om nødvendig)
+        # Service for set_reference
         self.srv = self.create_service(SetReference, 'set_reference', self.set_reference_callback)
 
     def joint_state_callback(self, msg):
-        # Siden det kun er én joint, bruk den første verdien i posisjon- og hastighetslistene
         if not msg.position:
             self.get_logger().warn("Ingen posisjonsdata mottatt!")
             return
@@ -51,13 +50,13 @@ class VelocityPIDControllerNode(Node):
         position = msg.position[0]
         velocity = msg.velocity[0] if len(msg.velocity) > 0 else 0.0
 
-        # Velg hva du vil regulere – her brukes posisjon som målt verdi.
+        # Det som reguleres
         measured_value = position  # alternativt: velocity
 
         # Oppdater PID-kontrolleren
         velocity_command = self.controller.update(measured_value)
 
-        # Publiser hastighets-pådraget, husk at data må pakkes som en liste
+        # Publiser hastighets-pådraget
         command_msg = Float64MultiArray()
         command_msg.data = [velocity_command]
         self.publisher.publish(command_msg)

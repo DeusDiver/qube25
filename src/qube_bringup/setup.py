@@ -11,11 +11,11 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         (os.path.join('share', package_name), ['package.xml']),
-        # Include all launch files
+        # Inkluder alle launch filer
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        # Include all URDF files
+        # Inkluder alle URDF filer
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.urdf.xacro')),
-        # Include all config files
+        # Inkluder alle config filer
         (os.path.join('share', package_name, 'config'), glob('config/*')),
     ],
     install_requires=['setuptools'],
