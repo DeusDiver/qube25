@@ -2,7 +2,6 @@
 Mini Prosjekt - Oliver &amp; Eldar - Gruppe 25
 ## Innhold
 - [Om prosjektet](#Om-prosjektet)
-- [Andre komandoer](#Andre-komandoer)
 - [Oppsett:](#Oppsett)
 - [Kjøre kode med kun simulering](#Kjøre-kode-med-kun-simulering)
 - [Kjøre kode med hardware](#Kjøre-kode-med-hardware)
@@ -15,7 +14,8 @@ Hei!
 
 Ønsker du å kjøre qube kontrolleren kan du følge denne oppskriften.
 Dette vil være en veiledning for de som kjører dette i ubuntu
-
+# Om prosjektet
+Kort beskrivelse
 # Oppsett
 1. Det første du må gjøre er å innstallere ROS2, du kan følge denne veiledningen: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
 2. Gå til mappen du ønsker å laste ned prosjektet til, høyreklikk innei mappen og velg "Åpne i terminal". Lim inn følgende kommando:
