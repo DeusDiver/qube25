@@ -8,8 +8,11 @@ Dette vil være en veiledning for de som kjører dette i ubuntu
 
 # Oppsett:
 1. Det første du må gjøre er å innstallere ROS2, du kan følge denne veiledningen: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
-2. Gå til mappen du ønsker å laste ned prosjektet til, høyreklikk innei mappen og velg "Åpne i terminal". Lim inn følgende kommando: "
+2. Gå til mappen du ønsker å laste ned prosjektet til, høyreklikk innei mappen og velg "Åpne i terminal". Lim inn følgende kommando:
+3. 
+
 (git clone https://github.com/DeusDiver/qube25.git) 
+
 Dette vil klone prosjektet til ønsket mappe. Dette blir ditt workspace fra nå av.
 4. Du må laste ned to stykk ROS 2 kontroller-pakker, som inneholder spesifikke noder for å håndtere robotens kontrollmekanismer. Disse sørger for kommunikasjon med robotens 
    maskinvare eller simulator. Åpne en terminal (Ctrl+Alt+T) og kjør disse to comandoene: sudo apt install -y ros-jazzy-ros2-control ros-jazzy-ros2-controllers
