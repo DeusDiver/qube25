@@ -167,6 +167,8 @@ ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false de
 # Andre komandoer
 ros2 launch qube_description view_qube.launch.py #åpner visualisering av quben
 
+--------------------------------------------------------------------
+
 # Pakker i prosjektet
 Dette prosjektet har x pakker. Her kommer en liten beskrivelse av de 3 viktigste qube_description, qube_bringup og qube_controller.
 
@@ -180,7 +182,7 @@ Hvor godt dokumentert er pakken? (skrive litt om pakken her)
 # qube_controller
 Hvor godt dokumentert er pakken? (skrive litt om pakken her)
 
---------------------------------------------------------------------
+
 -------------------------------------------------------------------
 ------------------------------------------------------------------
 
