@@ -96,7 +96,7 @@ Sett inn bilde veiledning her
 # Hvordan bruke launch filer
 Ved hjelp av lauch filer kan man sette forskjellige parameter. Under ser du et eksempel på hvordan dette kan gjøres.
 
-            ros2 launch qube_bringup bringup.launch.py baud_rate:=9600 simulation:=false device:=/dev/ttyACM0 p:=12.5 i:=0.05 d:=0.2
+    ros2 launch qube_bringup bringup.launch.py baud_rate:=9600 simulation:=false device:=/dev/ttyACM0 p:=12.5 i:=0.05 d:=0.2
 
 Man må ikke endre alt, uendra verdiar bruker standard verdiene definert i bunnen av launch fila.
 
