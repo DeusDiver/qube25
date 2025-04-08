@@ -34,7 +34,6 @@ Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simuleri
 7.  Prosjektet inneholder to lounch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
--
 
                 ros2 launch qube_bringup bringup.launch.py
 -
@@ -50,7 +49,9 @@ Sett inn bilde veiledning her
 Kjøring av kode med kun simulering:
 1. Sett sammen quben og koble til strøm.
 2. Åpne en terminal (Ctrl+Alt+T)
-3. Kjør følgende kommando: ls /dev/tty*
+3. Kjør følgende kommando:
+
+            ls /dev/tty*
 
    Du vil da få opp et skjermbilde som dette:
 
@@ -58,19 +59,21 @@ Kjøring av kode med kun simulering:
    
 5. Koble kuben til en USB port på PCen din.
 6. Åpne en terminal (Ctrl+Alt+T)
-7. Kjør følgende kommando: ls /dev/tty*
+7. Kjør følgende kommando igjen:
+
+            ls /dev/tty*
 
    Du vil få opp et tilsvarende skjermbilde men med en ekstra "enhet" til i listen
 
     (sett inn skjermbilde)
    
-8. Åpne mappen til prosjektet.
-9. Høyreklikk i mappen og velg "Åpne i Terminal". 
-10. I terminalen må du bygge prosjeket med kommandoen. Når du kjører kommandoen, starter du prosessen med å kompilere og bygge prosjektets kildekode. Avhengigheter og pakker        oppdages, kildekoden kompileres og oppsettfiler genereres.
+10. Åpne mappen til prosjektet.
+11. Høyreklikk i mappen og velg "Åpne i Terminal". 
+12. I terminalen må du bygge prosjeket med kommandoen. Når du kjører kommandoen, starter du prosessen med å kompilere og bygge prosjektets kildekode. Avhengigheter og pakker        oppdages, kildekoden kompileres og oppsettfiler genereres.
    Dette gjør du ved å kjøre følgende comando i terminalen: "colcon build". 
-11. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
+13. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
    Dette gjør du ved kjøre følgende kommando i teminalen : "source install/setup.bash" 
-12.  Prosjektet inneholder to launch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
+14.  Prosjektet inneholder to launch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
     - "ros2 launch qube_bringup bringup.launch.py device:=/dev/ttyACM0" (dev/ttyACM0 må her byttes ut med den "IDen" du fikk i steg 7)
