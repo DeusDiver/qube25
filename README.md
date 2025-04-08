@@ -133,15 +133,27 @@ Man må ikke endre alt, uendra verdiar bruker standard verdiene definert i bunne
 "***p***", "***i***", "***d***" PID verdier, start gjerne med kun et P ledd, så øk I / D forsiktig. ***OBS!*** Float, så om du skal velge "0" må du skrive "0.0"!!! 
 
 
+# Viktige komandoer
+colcon build # Bygger alle pakkene i workspace
+colcon build --packages-select qube_bringup  # Bygger kun den spesifiserte pakken
+source install/setup.bash  # Kilde oppsett etter bygging
+ros2 launch qube_bringup bringup.launch.py # med PID
+ros2 launch qube_bringup bringup.launch2.py #uten PID
+ros2 run qube_controller pid #åpner PID controller
+ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false device:=/dev/ttyUSB0 #for å sette parameter
+
+# Andre komandoer
+ros2 launch qube_description view_qube.launch.py #åpner visualisering av quben
+
+
 Her er viktige kommandoer du trenger:
+colcon build
+source install/setup.bash
 
-     colcon build # Bygger alle pakkene i workspace
-     colcon build --packages-select qube_bringup  # Bygger kun den spesifiserte pakken
-     source install/setup.bash  # Kilde oppsett etter bygging
-     ros2 launch qube_bringup bringup.launch.py
-     ros2 launch qube_bringup bringup.launch2.py
-
-
+ros2 launch qube_description view_qube.launch.py
+ros2 launch qube_bringup bringup.launch.py
+ros2 launch qube_bringup bringup.launch2.py
+ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false device:=/dev/ttyUSB0
 
 
 
