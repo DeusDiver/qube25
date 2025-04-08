@@ -109,7 +109,7 @@ Man må ikke endre alt, uendra verdiar bruker standard verdiene definert i bunne
 "***p***", "***i***", "***d***" PID verdier, start gjerne med kun et P ledd, så øk I / D forsiktig. ***OBS!*** Float, så om du skal velge "0" må du skrive "0.0"!!! 
 
 
-
+Her er viktige kommandoer du trenger:
 
      colcon build # Bygger alle pakkene i workspace
      colcon build --packages-select qube_bringup  # Bygger kun den spesifiserte pakken
@@ -123,24 +123,12 @@ Man må ikke endre alt, uendra verdiar bruker standard verdiene definert i bunne
 
 
 
-Her er viktige kommandoer du trenger:
-colcon build
-source install/setup.bash
-
-ros2 launch qube_description view_qube.launch.py
-ros2 launch qube_bringup bringup.launch.py
-ros2 launch qube_bringup bringup.launch2.py
-ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false device:=/dev/ttyUSB0
 
 
 
 
 
-Husk å sjekk!:
-    Bringup: Sjekk baud rate (9600???), com port(Bruk arduino IDE)
-
-
-    Oppgave 5: Selvevaluering
+Oppgave 5: Selvevaluering
 Det siste dere skal gjøre er å evaluere deres eget arbeid. Dette gjør dere individuelt, og leveres inn på blackboard sammen med en link til repo-et dere har laget.
 
 Dere skal svare i prosent hva dere tenker om arbeidet dere har gjort i prosjektet
