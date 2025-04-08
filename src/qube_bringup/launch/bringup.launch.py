@@ -7,13 +7,17 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
+#--------------------------------------------------------------------------------------------------------------------------------------------
+# Denne launchfila kjører det samme som "bringup.launch2.py" i tillegg  PID kontrolleren, og har mulighet til å velge PID verdier ved launch.
+#--------------------------------------------------------------------------------------------------------------------------------------------
+
 
 def launch_setup(context, *args, **kwargs):
-    # Get package directories
+    # Hent mappe lokasjoner
     qube_bringup_dir = get_package_share_directory("qube_bringup")
     qube_driver_dir = get_package_share_directory("qube_driver")
 
-    # Process Xacro file with substitutions
+    # Prosesser xacro fil med substituering
     xacro_file = os.path.join(qube_bringup_dir, "urdf", "controlled_qube.urdf.xacro")
     robot_description = xacro.process_file(
         xacro_file,
@@ -31,7 +35,7 @@ def launch_setup(context, *args, **kwargs):
         parameters=[{"robot_description": robot_description}]
     )
 
-    # Joint State Publisher GUI
+    # Joint State Publisher GUI Node
     node_joint_state_publisher_gui = Node(
         package="joint_state_publisher_gui",
         executable="joint_state_publisher_gui",
@@ -39,7 +43,7 @@ def launch_setup(context, *args, **kwargs):
         output="screen"
     )
 
-    # RViz Node with proper config path
+    # RViz Node path til config fil
     rviz_config = PathJoinSubstitution([
         FindPackageShare("qube_bringup"),
         "config",
@@ -81,6 +85,8 @@ def launch_setup(context, *args, **kwargs):
         pid_node
     ]
 
+
+# Her er standard verdiene som kjøres om det ikke blir gjort endringer ved kjøring av launch fila (Se README)
 def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument("baud_rate", default_value="115200"),
