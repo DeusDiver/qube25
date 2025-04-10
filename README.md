@@ -166,6 +166,8 @@ Man må ikke endre alt, man kan velge hvilke verdier man vil endre og uendra ver
 1. Du skal kunne styre Quben via GUI du får opp. Her har du en slider og noen knapper som du kan styre Quben med. 
 2. Enderinger du gjør på Quben skal speiles i simulatoren som du ser på PCen
 
+[her]([#Hvordan-bruke-launch-filer](https://github.com/DeusDiver/qube25/blob/main/src/qube_bringup/launch/bringup.launch.py#L89-L99)) https://github.com/DeusDiver/qube25/blob/main/src/qube_bringup/launch/bringup.launch.py
+
 # Viktige komandoer
 ```
 colcon build # Bygger alle pakkene i workspace
