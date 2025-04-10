@@ -156,14 +156,27 @@ Man må ikke endre alt, man kan velge hvilke verdier man vil endre og uendra ver
 2. Enderinger du gjør på Quben skal speiles i simulatoren som du ser på PCen
 
 # Viktige komandoer
+```
 colcon build # Bygger alle pakkene i workspace
+```
+```
 colcon build --packages-select qube_bringup  # Bygger kun den spesifiserte pakken
+```
+```
 source install/setup.bash  # Kilde oppsett etter bygging
+```
+```
 ros2 launch qube_bringup bringup.launch.py # med PID
+```
+```
 ros2 launch qube_bringup bringup.launch2.py #uten PID
+```
+```
 ros2 run qube_controller pid #åpner PID controller
+```
+```
 ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false device:=/dev/ttyUSB0 #for å sette parameter
-
+```
 # Andre komandoer
 ros2 launch qube_description view_qube.launch.py #åpner visualisering av quben
 
