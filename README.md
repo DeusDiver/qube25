@@ -194,6 +194,9 @@ ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false de
 ```
 ros2 launch qube_description view_qube.launch.py #åpner visualisering av quben
 ```
+```
+rqt_graph
+```
 --------------------------------------------------------------------
 
 # Pakker i prosjektet
