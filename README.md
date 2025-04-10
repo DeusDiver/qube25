@@ -45,12 +45,12 @@ Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simuleri
 ```
 colcon build 
 ```
-5. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
+4. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
    Dette gjør du ved kjøre følgende kommando i teminalen:
 ```
 source install/setup.bash
 ```
-7.  Prosjektet inneholder to lounch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
+5.  Prosjektet inneholder to lounch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
 ```
@@ -61,9 +61,9 @@ ros2 launch qube_bringup bringup.launch2.py
 ```
 Med launch filene kan man sette flere parameter. Se veiledning for launch-filer [her](#Hvordan-bruke-launch-filer)
 
-8. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
+6. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
 
-9.Første gang du kjører dette må du lagre configfil. Dette gjør du [slik:](#Lagring-av-config-fil)
+7.Første gang du kjører dette må du lagre configfil. Dette gjør du [slik:](#Lagring-av-config-fil)
 
 Sett inn bilde veiledning her 
 
@@ -77,9 +77,9 @@ ls /dev/tty*
 ```
    Du vil da få en liste med enheter
 
-5. Koble kuben til en USB port på PCen din.
-6. Gå tilbake til terminalen
-7. Kjør følgende kommando igjen:
+4. Koble kuben til en USB port på PCen din.
+5. Gå tilbake til terminalen
+6. Kjør følgende kommando igjen:
 ```
 ls /dev/tty*
 ```
@@ -88,13 +88,13 @@ ls /dev/tty*
 
 Dette er Quben, og denne ID-en vil brukes senere!
    
-10. Åpne mappen til prosjektet.
-11. Høyreklikk i mappen og velg "Åpne i Terminal". 
-12. I terminalen må du bygge prosjeket med kommandoen. Når du kjører kommandoen, starter du prosessen med å kompilere og bygge prosjektets kildekode. Avhengigheter og pakker        oppdages, kildekoden kompileres og oppsettfiler genereres.
+7. Åpne mappen til prosjektet.
+8. Høyreklikk i mappen og velg "Åpne i Terminal". 
+9. I terminalen må du bygge prosjeket med kommandoen. Når du kjører kommandoen, starter du prosessen med å kompilere og bygge prosjektets kildekode. Avhengigheter og pakker        oppdages, kildekoden kompileres og oppsettfiler genereres.
    Dette gjør du ved å kjøre følgende comando i terminalen: "colcon build". 
-13. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
+10. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
    Dette gjør du ved kjøre følgende kommando i teminalen : "source install/setup.bash" 
-14.  Prosjektet inneholder to launch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
+11.  Prosjektet inneholder to launch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
 ```
@@ -107,13 +107,13 @@ ros2 launch qube_bringup bringup.launch2.py device:=/dev/ttyACM0
 
 Med launch filene kan man sette flere parameter. Se veiledning for lauchfiler [her](#Hvordan-bruke-launch-filer)
 
-15. Dersom du opplever å få en feilmelding nserialIOException med en "Permission Denied", så mangler USB-portenlese/skriverettigheter Dette løser du ved å Åpne en terminal (Ctrl+Alt+T) og kjører følgende komando: sudo chmod 666 /dev/ttyACMX. Her må du bytte ut X med tallet du fikk fra steg 3-7. chmod står for CHange MODe. 666 angir hvilke rettigheter som gies til hvem. Det første tallet er filens eier, andre tallet er gruppen filen er i, og siste tallet er alle andre. Tallet er et binært tall som setter bit for read, write og execute (rwx), 6=110 som gir rettigheter til lesing og skriving (Adam Leon Kleppe foreleser i AIS2105). 
+14. Dersom du opplever å få en feilmelding nserialIOException med en "Permission Denied", så mangler USB-portenlese/skriverettigheter Dette løser du ved å Åpne en terminal (Ctrl+Alt+T) og kjører følgende komando: sudo chmod 666 /dev/ttyACMX. Her må du bytte ut X med tallet du fikk fra steg 3-7. chmod står for CHange MODe. 666 angir hvilke rettigheter som gies til hvem. Det første tallet er filens eier, andre tallet er gruppen filen er i, og siste tallet er alle andre. Tallet er et binært tall som setter bit for read, write og execute (rwx), 6=110 som gir rettigheter til lesing og skriving (Adam Leon Kleppe foreleser i AIS2105). 
 
-16. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:
+15. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:
 ```
 ros2 run qube_controller pid
 ```            
-17.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
+16.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
 # Lagring av config fil
 ![Screenshot from 2025-04-03 11-54-56](https://github.com/user-attachments/assets/bc71d679-4f88-48a0-8fde-9a118ed1329e)
 Følg pil 1 og endre "map" til "world", så kan du trykke på "Add"
