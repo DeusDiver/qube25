@@ -98,7 +98,7 @@ ros2 launch qube_bringup bringup.launch2.py device:=/dev/ttyACM0
 ```
 (dev/ttyACM0 må her byttes ut med den "ID-en" du fikk i steg 7)
 
-Med launch filene kan man sette flere parameter. Se veiledning for lauchfiler lengre nede (link)
+Med launch filene kan man sette flere parameter. Se veiledning for lauchfiler [her](#Hvordan-bruke-launch-filer)
 13. Dersom du opplever å få en feilmelding nserialIOException med en "Permission Denied", så mangler USB-portenlese/skriverettigheter Dette løser du ved å Åpne en terminal (Ctrl+Alt+T) og kjører følgende komando: sudo chmod 666 /dev/ttyACMX. Her må du bytte ut X med tallet du fikk fra steg 3-7. chmod står for CHange MODe. 666 angir hvilke rettigheter som gies til hvem. Det første tallet er filens eier, andre tallet er gruppen filen er i, og siste tallet er alle andre. Tallet er et binært tall som setter bit for read, write og execute (rwx), 6=110 som gir rettigheter til lesing og skriving (Adam Leon Kleppe foreleser i AIS2105). 
 14. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:
 ```
