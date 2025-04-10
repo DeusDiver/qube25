@@ -60,8 +60,10 @@ ros2 launch qube_bringup bringup.launch.py
 ros2 launch qube_bringup bringup.launch2.py
 ```
 Med launch filene kan man sette flere parameter. Se veiledning for launch-filer [her](#Hvordan-bruke-launch-filer)
-9. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
-7.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
+
+8. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
+
+9.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
 
 Sett inn bilde veiledning her 
 
