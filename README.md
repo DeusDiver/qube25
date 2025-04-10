@@ -24,13 +24,15 @@ Dette vil være en veiledning for de som kjører dette i ubuntu
 # Oppsett
 1. Det første du må gjøre er å innstallere ROS2, du kan følge denne veiledningen: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
 2. Gå til mappen du ønsker å laste ned prosjektet til, høyreklikk innei mappen og velg "Åpne i terminal". Lim inn følgende kommando:
-
-            git clone https://github.com/DeusDiver/qube25.git
+```
+git clone https://github.com/DeusDiver/qube25.git
+```
 4. Dette vil klone prosjektet til ønsket mappe. Dette blir ditt workspace fra nå av.
 5. Du må laste ned to stykk ROS 2 kontroller-pakker, som inneholder spesifikke noder for å håndtere robotens kontrollmekanismer. Disse sørger for kommunikasjon med robotens 
 maskinvare eller simulator. Åpne en terminal (Ctrl+Alt+T) og kjør disse to comandoene: 
-
-         sudo apt install -y ros-jazzy-ros2-control ros-jazzy-ros2-controllers
+```
+sudo apt install -y ros-jazzy-ros2-control ros-jazzy-ros2-controllers
+```
 6. Du har nå alt du trenger for å kjøre koden
 
 Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simulering eller man kan kjøre med hardware.
@@ -40,21 +42,24 @@ Man har to valg når man skal kjøre koden. Man kan velge å kjøre kun simuleri
 2. Høyreklikk i mappen og velg "Åpne i Terminal". 
 3. I terminalen må du bygge prosjeket med kommandoen. Når du kjører kommandoen, starter du prosessen med å kompilere og bygge prosjektets kildekode. Avhengigheter og pakker        oppdages, kildekoden kompileres og oppsettfiler genereres.
    Dette gjør du ved å kjøre følgende comando i terminalen:
-
-               colcon build 
+```
+colcon build 
+```
 5. Når pakkene er bygget må du sette opp miljøvariablene dine slik at systemet vet hvor det kan finne de nylig bygde pakkene.
    Dette gjør du ved kjøre følgende kommando i teminalen:
-
-               source install/setup.bash
+```
+source install/setup.bash
+```
 7.  Prosjektet inneholder to lounch filer. Dette er filer som åpner pakker og noder og evetuelt andre lounch filer du trenger.  Forskjellen på disse filene er at "launch2" 
     kjører uten PID slik at man kan velge å kjøre denne manuelt om ønskelig.
     I teminalen kan du lime inn ønsket lauch fil for å starte prosjektet:
-
-                ros2 launch qube_bringup bringup.launch.py
--
-   
-                ros2 launch qube_bringup bringup.launch2.py
-    Med launch filene kan man sette flere parameter. Se veiledning for launch-filer [her](#Hvordan-bruke-launch-filer)
+```
+ros2 launch qube_bringup bringup.launch.py
+```
+```
+ros2 launch qube_bringup bringup.launch2.py
+```
+Med launch filene kan man sette flere parameter. Se veiledning for launch-filer [her](#Hvordan-bruke-launch-filer)
 9. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
 7.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
 
@@ -65,17 +70,17 @@ Kjøring av kode med kun simulering:
 1. Sett sammen quben og koble til strøm.
 2. Åpne en terminal (Ctrl+Alt+T)
 3. Kjør følgende kommando:
-
-            ls /dev/tty*
-
+```
+ls /dev/tty*
+```
    Du vil da få en liste med enheter
 
 5. Koble kuben til en USB port på PCen din.
 6. Gå tilbake til terminalen
 7. Kjør følgende kommando igjen:
-
-            ls /dev/tty*
-
+```
+ls /dev/tty*
+```
    Du vil få opp tilsvarende til skjermbildet under, hvor etter andre gangen kommandoen kjøres så vil der være en ekstra "enhet" i listen
 ![Screenshot from 2025-04-03 11-11-32](https://github.com/user-attachments/assets/0dc9bd49-22fd-4424-904e-10b9d2ba5162)
 
@@ -138,9 +143,9 @@ Lagre så fila med navnet vist over! Nå skal disse instillingene brukes ved nes
 
 # Hvordan bruke launch filer
 Ved hjelp av lauch filer kan man sette forskjellige parameter. Under ser du et eksempel på hvordan dette kan gjøres.
-
+```
 ros2 launch qube_bringup bringup.launch.py baud_rate:=9600 simulation:=false device:=/dev/ttyACM0 p:=12.5 i:=0.05 d:=0.2
-
+```
 Man må ikke endre alt, man kan velge hvilke verdier man vil endre og uendra verdier bruker standard verdiene som erdefinert i bunnen av launch fila.
 
 Ønsker du å kjøre lauchfilen med kun standard verdier kjører du følgende komando "ros2 launch qube_bringup bringup.launch.py"
@@ -182,8 +187,9 @@ ros2 run qube_controller pid #åpner PID controller
 ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false device:=/dev/ttyUSB0 #for å sette parameter
 ```
 # Andre komandoer
+```
 ros2 launch qube_description view_qube.launch.py #åpner visualisering av quben
-
+```
 --------------------------------------------------------------------
 
 # Pakker i prosjektet
@@ -204,15 +210,6 @@ Hvor godt dokumentert er pakken? (skrive litt om pakken her)
 ------------------------------------------------------------------
 
 
-
-Her er viktige kommandoer du trenger:
-colcon build
-source install/setup.bash
-
-ros2 launch qube_description view_qube.launch.py
-ros2 launch qube_bringup bringup.launch.py
-ros2 launch qube_bringup bringup.launch2.py
-ros2 launch qube_bringup bringup.launch2.py baud_rate:=9600 simulation:=false device:=/dev/ttyUSB0
 
 
 
