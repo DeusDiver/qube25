@@ -14,11 +14,14 @@ Mini Prosjekt - Oliver &amp; Eldar - Gruppe 25
 - [qube_controller pakken](#qube_controller)
 
 # Om prosjektet
-Kort beskrivelse
 
-Hei!
 
-Ønsker du å kjøre qube kontrolleren kan du følge denne oppskriften.
+Dette prosjektet handler om å kunne visualisere / simulere og styre / regulere en Quanser Cube ved å bruke ROS2.
+![QUBE-Servo_2_angled_lighton_2](https://github.com/user-attachments/assets/7dbe8160-cce8-47fa-bffb-d6dc458ed4a9)
+
+
+
+I denne README fila så skal du finne all den hjelpa du trenger til å kjøre prosjektet.
 Dette vil være en veiledning for de som kjører dette i ubuntu
 
 # Oppsett
@@ -139,10 +142,6 @@ Lagre så fila med navnet vist over! Nå skal disse instillingene brukes ved nes
 
 
 
-
-
-
-
 # Hvordan bruke launch filer
 Ved hjelp av lauch filer kan man sette forskjellige parameter. Under ser du et eksempel på hvordan dette kan gjøres.
 ```
@@ -164,11 +163,10 @@ Man må ikke endre alt, man kan velge hvilke verdier man vil endre og uendra ver
 
 # Hva kan man gjøre
 1. Du skal kunne styre Quben via GUI du får opp. Her har du en slider og noen knapper som du kan styre Quben med. 
-2. Enderinger du gjør på Quben skal speiles i simulatoren som du ser på PCen
+2. Endringer du gjør på Quben skal speiles i simulatoren som du ser på PCen
 
-[her](https://github.com/DeusDiver/qube25/blob/main/src/qube_bringup/launch/bringup.launch.py#L89-L99)
 
-[Se viktige funksjoner i qube_controller.cpp](https://github.com/brukernavn/repository/blob/branch/path/to/qube_controller.cpp#L15-L30)
+For å endre standard verdier så trykker du på [lenka](https://github.com/DeusDiver/qube25/blob/main/src/qube_bringup/launch/bringup.launch.py#L89-L99) og bytter ut verdiane etter "default_value". F.eks fra default_value="/dev/ttyACM0" til default_value="/dev/ttyACM5".
 
 # Viktige komandoer
 ```
@@ -199,25 +197,29 @@ ros2 launch qube_description view_qube.launch.py #åpner visualisering av quben
 --------------------------------------------------------------------
 
 # Pakker i prosjektet
-Dette prosjektet har x pakker. Her kommer en liten beskrivelse av de 3 viktigste qube_description, qube_bringup og qube_controller.
+Dette prosjektet består av flere ROS2-pakker som er utviklet for robotens beskrivelse, oppstart og kontroll. Nedenfor finner du en kort beskrivelse av de tre viktigste pakkene i prosjektet:
+
+Her er et bilde som viser et oversikt over topics, og hvordan pakkene kommuniserer med hverandre.
+![Screenshot from 2025-04-10 08-18-04](https://github.com/user-attachments/assets/b2ebea2e-da36-486e-931b-794ce4db622e)
+
 
 # qube_description
-Hvor godt dokumentert er filene i pakken? (sjekk at filene har kommentarer)
-Hvor godt dokumentert er selve pakken? (skirve litt om pakken her)
+qube_description-pakken inneholder alt som trengs for å beskrive roboten. Her ligger  URDF filen som beskriver robotens fysiske oppbygning. Pakken inneholder konfigurasjonsfiler for RViz som gjør det mulig å gi en visuell fremstilling av quben under simulering og testing. Pakken innholder også en launch fil som åpner en visualisering av quben i Rviz.
 
 # qube_bringup
-Hvor godt dokumentert er pakken? (skrive litt om pakken her)
+qube_bringup-pakken er ansvarlig for å starte opp nødvendige filer. Denne pakken inneholder to launch-filer som setter opp de nødvendige ROS2-nodene, miljø og parametre. Her ligger det en URDF fil som henter informasjonen fra URDF filen som ligger i qube_description.
 
 # qube_controller
-Hvor godt dokumentert er pakken? (skrive litt om pakken her)
+Denne pakken har PID kontrolleren "qube_pid" med entry point navn "pid" i setup fila. "qube_pid" setter PID verdier (som overskrives av launch fila) og tar inn eller "subscriber" på topic-en "/joint_states", og publiserer deretter til topic-en "/velocity_controller/commands" fra "qube_driver" pakken.
 
+# qube_driver
+Dette er en pakke laget av de flotte foreleserene våre Adam Leon Kleppe og Lars Ivar Hatledal. Alle warnings og feilmeldinger skyldes  Lars Ivar :).
+
+
+I dette prosjektet har vi brukt opp igjen filer og kode fra lab oppgaver, og dermed så ligger det igjen nokre filer / deler av kode som ikke er i bruk i prosjektet.
 
 -------------------------------------------------------------------
 ------------------------------------------------------------------
-
-
-
-
 
 
 
@@ -247,7 +249,11 @@ Launch-filen fungerer greit men ikke perfekt. Visualisering i RViz blir lastet m
 # Hvor godt funker launch-filen til å starte opp alle elementene?
 qube_bringup fungerer som den skal, man kjører launchfilen og alt som skal åpne seg gjør det.
 Vi har laget 2 launh filer navn 1 og navn 2. ved å kjøre kommando 1 starter bring up filen med PID Controller, kjører man kommando 2 starter bring up uten PID kontroller slik at man kan kjøre denne separat.
-# Hvor enkelt kan man endre på hardware-paramererne som baud_rate, device og simulation? (Det å endre parametrene når man kjører launch-filen er enkelt. Det å måtte endre en hardkodet verdi en tilfeldig plass inni launch-filen og måtte bygge den etterpå er ikke enkelt.)
+
+Config er lagret i share derfor må settes opp første gang, hadde den vært lagret. fordel kan sette opp individuelt ulempe må settes opp første gang. endre plassen den leter nå leter den i shared 
+
+# Hvor enkelt kan man endre på hardware-paramererne som baud_rate, device og simulation? 
+(Det å endre parametrene når man kjører launch-filen er enkelt. Det å måtte endre en hardkodet verdi en tilfeldig plass inni launch-filen og måtte bygge den etterpå er ikke enkelt.)
 Det er veldig enkelt man kan sette 
 # Hvor godt dokumentert er pakken?
 Her må vi dokumentere
