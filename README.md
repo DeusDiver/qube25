@@ -63,7 +63,7 @@ Med launch filene kan man sette flere parameter. Se veiledning for launch-filer 
 
 8. For å kjøre PIDen manuelt åpner du en terminal (Ctrl+Alt+T) og kjør følgende komando:"ros2 run qube_controller pid"
 
-9.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
+9.Første gang du kjører dette må du lagre configfil. Dette gjør du [slik:](#Lagring-av-config-fil)
 
 Sett inn bilde veiledning her 
 
@@ -114,7 +114,7 @@ Med launch filene kan man sette flere parameter. Se veiledning for lauchfiler [h
 ros2 run qube_controller pid
 ```            
 17.Første gang du kjører dette må du lagre configfil. Dette gjør du slik:
-
+# Lagring av config fil
 ![Screenshot from 2025-04-03 11-54-56](https://github.com/user-attachments/assets/bc71d679-4f88-48a0-8fde-9a118ed1329e)
 Følg pil 1 og endre "map" til "world", så kan du trykke på "Add"
 
