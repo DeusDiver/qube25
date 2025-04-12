@@ -225,5 +225,5 @@ I dette prosjektet har vi brukt opp igjen filer og kode fra lab oppgaver, og der
 
 
 
-# Google Drive link:
+# Google Drive link til video av Quben ved bruk av ROS2:
 https://drive.google.com/drive/folders/1MlKgm74x8dr88riOgZhLQA8-UEuPzxm0?usp=sharing
