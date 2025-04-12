@@ -166,9 +166,9 @@ Man må ikke endre alt, man kan velge hvilke verdier man vil endre og uendra ver
 2. Endringer du gjør på Quben skal speiles i simulatoren som du ser på PCen
 
 
-For å endre standard verdier så trykker du på [lenka](https://github.com/DeusDiver/qube25/blob/main/src/qube_bringup/launch/bringup.launch.py#L89-L99) og bytter ut verdiane etter "default_value". F.eks fra default_value="/dev/ttyACM0" til default_value="/dev/ttyACM5".
+For å endre standard verdier så trykker du på [linken](https://github.com/DeusDiver/qube25/blob/main/src/qube_bringup/launch/bringup.launch.py#L89-L99) og bytter ut verdiene etter "default_value". F.eks fra default_value="/dev/ttyACM0" til default_value="/dev/ttyACM5".
 
-OBS!!! Om du endrer verdier i koden så må du lagre, så kjøre "colcon build" og "source install/setup.bash" i Workspace som forklart tidlegare.
+OBS!!! Om du endrer verdier i koden så må du lagre, så kjøre "colcon build" og "source install/setup.bash" i Workspace som forklart tidligere.
 
 # Viktige komandoer
 ```
